@@ -16,7 +16,7 @@ export default function MovieCard({ movie }) {
     };
 
 
-    const FlagIcon = languageFlag[movie.original_language.toLowerCase()]
+    const FlagIcon = languageFlag[movie.original_language.toLowerCase()] || US
 
 
     return (
@@ -29,6 +29,7 @@ export default function MovieCard({ movie }) {
                         <li><h4>Original Title:</h4> {movie.original_title}</li>
                         <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
                         <li><h4>Average Vote: </h4> {movie.vote_average}</li>
+                        <hr />
                     </ul>
                 </div>
             </div>

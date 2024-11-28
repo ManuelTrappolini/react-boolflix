@@ -30,13 +30,15 @@ export default function AppMain() {
 
     return (
         <>
-            {
-                data.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+            <main>
+                {
+                    data.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie} />
 
-                )
-                )
-            }
+                    )
+                    )
+                }
+            </main>
         </>
     )
 }
