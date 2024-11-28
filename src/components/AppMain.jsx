@@ -3,6 +3,11 @@ import GlobalContext from "../contexts/GlobalContext";
 import { useContext } from "react";
 
 
+
+
+
+
+
 export default function AppMain() {
     const { data, error } = useContext(GlobalContext);
     console.log(data);
@@ -21,11 +26,14 @@ export default function AppMain() {
         return <div>Nessun film trovato</div>;
     }
 
+
+
     return (
         <>
             {
                 data.map((movie) => (
                     <MovieCard key={movie.id} movie={movie} />
+
                 )
                 )
             }

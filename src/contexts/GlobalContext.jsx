@@ -21,7 +21,7 @@ const GlobalProvider = ({ children }) => {
 
         const url = query
             ? `https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=${query}`
-            : 'https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=""';
+            : 'https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564';
         fetch(url)
             .then(response => {
                 if (!response.ok) {

@@ -4,3 +4,17 @@ header {
     background-color: black;
     height: 80px;
 }
+
+li {
+    padding-bottom: 1rem;
+
+    h4 {
+        color: red;
+        display: inline-block;
+    }
+
+    .movie-flag {
+        width: 25px;
+        height: auto;
+    }
+}
