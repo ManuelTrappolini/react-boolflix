@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function SearchBar() {
     const [searchText, setSearchText] = useState('')
-    const { searchQuery, updateSearchQuery } = useContext(GlobalContext);
+    const { updateSearchQuery } = useContext(GlobalContext);
 
 
     function handleSearchForm(e) {

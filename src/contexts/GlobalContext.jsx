@@ -8,7 +8,7 @@ const GlobalProvider = ({ children }) => {
 
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-
+    const [searchQuery, setSearchQuery] = useState('')
 
 
     useEffect(() => {
@@ -17,9 +17,11 @@ const GlobalProvider = ({ children }) => {
     }, []);
 
 
-    const fetchData = () => {
+    const fetchData = (query = '') => {
 
-        const url = 'https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=ritorno+al+futuro';
+        const url = query
+            ? `https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=${query}`
+            : 'https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=""';
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -28,6 +30,8 @@ const GlobalProvider = ({ children }) => {
                 return response.json();
             })
             .then(result => {
+                console.log('risultato:', result.results);
+
                 setData(result.results);
             })
             .catch(err => {
@@ -35,11 +39,14 @@ const GlobalProvider = ({ children }) => {
             })
 
     }
-
+    const updateSearchQuery = (query) => {
+        setSearchQuery(query);
+        fetchData(query);
+    }
 
     return (
 
-        <GlobalContext.Provider value={{ data, error }}>
+        <GlobalContext.Provider value={{ data, error, searchQuery, updateSearchQuery }}>
 
             {children}
 

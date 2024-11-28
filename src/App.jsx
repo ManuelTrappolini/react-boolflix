@@ -2,6 +2,7 @@ import AppHeader from "./components/AppHeader"
 import { GlobalProvider } from "./contexts/GlobalContext"
 import React from "react"
 import SearchBar from "./components/SearchBar"
+import AppMain from "./components/AppMain"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 
       <GlobalProvider>
         <AppHeader />
+        <AppMain />
       </GlobalProvider>
 
 
