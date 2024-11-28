@@ -1,14 +1,20 @@
-import GlobalContext from "./contexts/GlobalContext"
+import AppHeader from "./components/AppHeader"
+import { GlobalProvider } from "./contexts/GlobalContext"
 import React from "react"
+import SearchBar from "./components/SearchBar"
 
 function App() {
 
 
   return (
     <>
-      <GlobalContext>
 
-      </GlobalContext>
+
+      <GlobalProvider>
+        <AppHeader />
+      </GlobalProvider>
+
+
     </>
   )
 }
