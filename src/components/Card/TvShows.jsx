@@ -25,7 +25,7 @@ export default function TvShowsCard({ tvShows }) {
     return (
 
 
-        <div className="card col-4">
+        <div className="card col-3 col-6-sm col-6-md col-3-lg">
             <a href=""><img className='img-cover' src={tvShows.poster_path ? `http://image.tmdb.org/t/p/w342/${tvShows.poster_path}` : '/images/not-found.jpeg'} alt="" ></img>
 
                 <div className='wrapper'>
