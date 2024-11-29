@@ -13,7 +13,7 @@ export default function SearchBar() {
 
         updateSearchQuery(searchText)
 
-
+        setSearchText('')
 
     }
 

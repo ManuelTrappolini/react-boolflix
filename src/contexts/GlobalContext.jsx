@@ -23,7 +23,7 @@ const GlobalProvider = ({ children }) => {
 
         const url = query
             ? `https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=${query}`
-            : 'https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564';
+            : 'https://api.themoviedb.org/3/discover/tv?api_key=e99307154c6dfb0b4750f6603256716d&sort_by=popularity.desc';
         fetch(url)
             .then(response => {
                 if (!response.ok) {
