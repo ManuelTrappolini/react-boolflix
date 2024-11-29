@@ -6,7 +6,8 @@ const GlobalContext = createContext()
 
 const GlobalProvider = ({ children }) => {
 
-    const [data, setData] = useState(null);
+    const [movies, setMovies] = useState([]);
+    const [tvShows, setTvShows] = useState([])
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('')
 
@@ -14,6 +15,7 @@ const GlobalProvider = ({ children }) => {
     useEffect(() => {
 
         fetchMovies();
+        fetchTvShows();
     }, []);
 
 
@@ -30,9 +32,11 @@ const GlobalProvider = ({ children }) => {
                 return response.json();
             })
             .then(result => {
-                console.log('risultato:', result.results);
 
-                setData(result.results);
+
+
+
+                setMovies(result.results);
             })
             .catch(err => {
                 setError(err.message);
@@ -52,9 +56,9 @@ const GlobalProvider = ({ children }) => {
                 return response.json();
             })
             .then(result => {
-                console.log('risultato:', result.results);
 
-                setData(result.results);
+
+                setTvShows(result.results);
             })
             .catch(err => {
                 setError(err.message);
@@ -73,7 +77,7 @@ const GlobalProvider = ({ children }) => {
 
     return (
 
-        <GlobalContext.Provider value={{ data, error, searchQuery, updateSearchQuery }}>
+        <GlobalContext.Provider value={{ movies, tvShows, error, searchQuery, updateSearchQuery }}>
 
             {children}
 

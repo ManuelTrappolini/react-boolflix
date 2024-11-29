@@ -1,7 +1,6 @@
 import { IT, US, FR, ES, JP, GB, DE, CN, KR, RU } from 'country-flag-icons/react/3x2'
 
-export default function MovieCard({ movies }) {
-    console.log("MovieCard ricevuto:", movies);
+export default function TvShowsCard({ tvShows }) {
 
     const languageFlag = {
         'it': IT,
@@ -17,7 +16,7 @@ export default function MovieCard({ movies }) {
     };
 
 
-    const FlagIcon = languageFlag[movies?.original_language?.toLowerCase()] || US
+    const FlagIcon = languageFlag[tvShows.original_language.toLowerCase()] || US
 
 
     return (
@@ -26,10 +25,10 @@ export default function MovieCard({ movies }) {
             <div className="card">
                 <div className="card-body">
                     <ul>
-                        <li><h4 >Movie Title:</h4> {movies?.title}</li>
-                        <li><h4>Original Title:</h4> {movies?.original_title}</li>
+                        <li><h4 >TvShows Title:</h4> {tvShows.name}</li>
+                        <li><h4>Original Title:</h4> {tvShows.original_name}</li>
                         <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
-                        <li><h4>Average Vote: </h4> {movies?.vote_average}</li>
+                        <li><h4>Average Vote: </h4> {tvShows.vote_average}</li>
                         <hr />
                     </ul>
                 </div>

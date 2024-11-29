@@ -1,6 +1,7 @@
 import MovieCard from "./Card/MovieCard";
 import GlobalContext from "../contexts/GlobalContext";
 import { useContext } from "react";
+import TvShowsCard from "./Card/TvShows";
 
 
 
@@ -9,8 +10,8 @@ import { useContext } from "react";
 
 
 export default function AppMain() {
-    const { data, error } = useContext(GlobalContext);
-    console.log(data);
+    const { movies, tvShows, error } = useContext(GlobalContext);
+
 
 
 
@@ -18,25 +19,43 @@ export default function AppMain() {
     if (error) {
         return <div>Errore: {error}</div>;
     }
-    if (!data) {
+    if (!movies && !tvShows) {
         return <div>Caricamento in corso...</div>;
     }
 
-    if (!data.length === 0) {
-        return <div>Nessun film trovato</div>;
-    }
+
+
 
 
 
     return (
         <>
             <main>
-                {
-                    data.map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} />
+                {movies &&
 
-                    )
-                    )
+
+
+                    movies.map((movie) => (
+                        <MovieCard key={movie.id} movies={movie} />
+
+                    ))
+
+
+                }
+
+
+
+                {tvShows &&
+
+
+
+                    tvShows.map((tvShow) => (
+
+                        <TvShowsCard key={tvShow.id} tvShows={tvShow} />
+
+                    ))
+
+
                 }
             </main>
         </>
