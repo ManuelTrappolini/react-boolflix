@@ -20,25 +20,25 @@ export default function SearchBar() {
 
     return (
 
-        <div className="container">
-            <div>
 
-                <form onSubmit={handleSearchForm}>
+        <div>
 
-                    <label htmlFor="searchText" className="form-label"></label>
-                    <input
-                        type="search"
-                        className="form-control"
-                        name="searchText"
-                        id="searchText"
-                        aria-describedby="helpId"
-                        placeholder="🔍Search..."
-                        value={searchText}
-                        onChange={e => setSearchText(e.target.value)}
-                    />
-                </form>
-            </div>
+            <form onSubmit={handleSearchForm}>
+
+                <label htmlFor="searchText" className="form-label"></label>
+                <input
+                    type="search"
+                    className="form-control"
+                    name="searchText"
+                    id="searchText"
+                    aria-describedby="helpId"
+                    placeholder="🔍Search..."
+                    value={searchText}
+                    onChange={e => setSearchText(e.target.value)}
+                />
+            </form>
         </div>
+
 
     )
 

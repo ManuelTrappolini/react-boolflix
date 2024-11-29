@@ -22,31 +22,29 @@ export default function TvShowsCard({ tvShows }) {
 
 
     return (
-        <div className="col" >
-
-            <div className="card">
-                <div className="card-body">
-                    <ul>
-                        <li><h4 >TvShows Title:</h4> {tvShows.name}</li>
-                        <li><h4>Original Title:</h4> {tvShows.original_name}</li>
-                        <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
-
-                        <li><h4>Average Vote: </h4>
-                            {tvShows.vote_average <= 2 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /></span>
-                                : tvShows.vote_average <= 4 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                                    : tvShows.vote_average <= 6 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /> </span>
-                                        : tvShows.vote_average <= 8 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                                            : <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                            }
 
 
+        <div className="card col-4">
+            <a href=""><img className='img-cover' src={tvShows.poster_path ? `http://image.tmdb.org/t/p/w342/${tvShows.poster_path}` : '/images/not-found.jpeg'} alt="" ></img>
 
-                        </li>
-                        <li><img src={`http://image.tmdb.org/t/p/w342/${tvShows.poster_path}`} alt="" /></li>
-                        <hr />
-                    </ul>
+                <div className='wrapper'>
+                    <h5>TvShows Title: {tvShows.name}</h5>
+                    <h5>Original Title: {tvShows.original_name}</h5>
+                    <h5>Original Language: <FlagIcon className="movie-flag" /></h5>
+
+                    <h5>Average Vote:
+                        {tvShows.vote_average <= 2 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /></span>
+                            : tvShows.vote_average <= 4 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                                : tvShows.vote_average <= 6 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /> </span>
+                                    : tvShows.vote_average <= 8 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                                        : <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                        }
+                    </h5>
+                    {/* <h5>Content:  {tvShows?.overview}</h5> */}
                 </div>
-            </div>
-        </div>
+            </a>
+        </div >
+
+
     )
 }

@@ -31,33 +31,40 @@ export default function AppMain() {
     return (
         <>
             <main>
-                {movies &&
+                <div className="container">
+                    <div className="row">
+
+                        {movies &&
 
 
 
-                    movies.map((movie) => (
-                        <MovieCard key={movie.id} movies={movie} />
+                            movies.map((movie) => (
+                                <MovieCard key={movie.id} movies={movie} />
 
-                    ))
-
-
-                }
+                            ))
 
 
-
-                {tvShows &&
+                        }
 
 
 
-                    tvShows.map((tvShow) => (
-
-                        <TvShowsCard key={tvShow.id} tvShows={tvShow} />
-
-                    ))
+                        {tvShows &&
 
 
-                }
+
+                            tvShows.map((tvShow) => (
+
+                                <TvShowsCard key={tvShow.id} tvShows={tvShow} />
+
+                            ))
+
+
+                        }
+
+                    </div>
+                </div>
             </main>
+
         </>
     )
 }

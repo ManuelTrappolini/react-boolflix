@@ -24,28 +24,30 @@ export default function MovieCard({ movies }) {
 
 
     return (
-        <div className="col" >
 
-            <div className="card">
-                <div className="card-body">
-                    <ul>
-                        <li><h4 >Movie Title:</h4> {movies?.title}</li>
-                        <li><h4>Original Title:</h4> {movies?.original_title}</li>
-                        <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
-                        <li><h4>Average Vote: </h4>
-                            {movies.vote_average <= 2 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /></span>
-                                : movies.vote_average <= 4 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                                    : movies.vote_average <= 6 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /> </span>
-                                        : movies.vote_average <= 8 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                                            : <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
-                            }
-                        </li>
 
-                        <li><img src={`http://image.tmdb.org/t/p/w300/${movies.poster_path}`} alt="" /></li>
-                        <hr />
-                    </ul>
+
+        <div className="card col-4">
+            <a href=""><img className='img-cover' src={movies.poster_path ? `http://image.tmdb.org/t/p/w342/${movies.poster_path}` : '/images/not-found.jpeg'} alt="" ></img>
+
+                <div className='wrapper'>
+                    <h5>Movie Title: {movies?.title}</h5>
+                    <h5>Original Title: {movies?.original_title}</h5>
+                    <h5>Original Language: <FlagIcon className="movie-flag" /></h5>
+                    <h5>Average Vote:
+                        {movies.vote_average <= 2 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /></span>
+                            : movies.vote_average <= 4 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                                : movies.vote_average <= 6 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /> </span>
+                                    : movies.vote_average <= 8 ? <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                                        : <span className='rating-icon'><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /><FontAwesomeIcon icon={faStar} /></span>
+                        }
+                    </h5>
+                    {/* <h5>Content:  {movies?.overview}</h5> */}
+
                 </div>
-            </div>
+            </a>
         </div>
+
+
     )
 }
