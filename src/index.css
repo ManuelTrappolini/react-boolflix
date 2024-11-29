@@ -22,3 +22,8 @@ li {
 main {
     background-color: lightgray;
 }
+
+.rating-icon {
+    color: orange;
+
+}
