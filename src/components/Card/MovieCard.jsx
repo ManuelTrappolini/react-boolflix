@@ -30,6 +30,7 @@ export default function MovieCard({ movies }) {
                         <li><h4>Original Title:</h4> {movies?.original_title}</li>
                         <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
                         <li><h4>Average Vote: </h4> {movies?.vote_average}</li>
+                        <li><img src={`http://image.tmdb.org/t/p/w300/${movies.poster_path}`} alt="" /></li>
                         <hr />
                     </ul>
                 </div>

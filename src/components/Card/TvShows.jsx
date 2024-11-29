@@ -29,6 +29,7 @@ export default function TvShowsCard({ tvShows }) {
                         <li><h4>Original Title:</h4> {tvShows.original_name}</li>
                         <li><h4>Original Language:</h4> <FlagIcon className="movie-flag" /></li>
                         <li><h4>Average Vote: </h4> {tvShows.vote_average}</li>
+                        <li><img src={`http://image.tmdb.org/t/p/w300/${tvShows.poster_path}`} alt="" /></li>
                         <hr />
                     </ul>
                 </div>
