@@ -23,7 +23,7 @@ export default function SearchBar() {
 
         <div>
 
-            <form onSubmit={handleSearchForm}>
+            <form className="navbar" onSubmit={handleSearchForm}>
 
                 <label htmlFor="searchText" className="form-label"></label>
                 <input
