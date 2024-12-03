@@ -66,7 +66,7 @@ main {
 
 
 a:hover .img-cover {
-    opacity: 0.1;
+    filter: brightness(0.3);
 
 }
 
@@ -94,9 +94,7 @@ h4 {
     transform: translate(-50%, -50%);
     height: 80%;
     overflow-y: auto;
-
     width: 80%;
-
 }
 
 .movie-flag {
@@ -193,5 +191,6 @@ a {
     .col-1-sm {
         width: calc(100%/12*1)
     }
+}
 
-    /* #endregion media query max-width 600px*/
+/* #endregion media query max-width 600px*/

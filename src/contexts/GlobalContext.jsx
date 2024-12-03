@@ -11,6 +11,8 @@ const GlobalProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('')
 
+    const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY
+
 
     useEffect(() => {
 
@@ -22,8 +24,8 @@ const GlobalProvider = ({ children }) => {
     const fetchMovies = (query = '') => {
 
         const url = query
-            ? `https://api.themoviedb.org/3/search/movie?api_key=6f0cdd6a45dff3ebeb56b9a2e1bff564&query=${query}`
-            : 'https://api.themoviedb.org/3/discover/tv?api_key=e99307154c6dfb0b4750f6603256716d&sort_by=popularity.desc';
+            ? `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`
+            : `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc`;
         fetch(url)
             .then(response => {
                 if (!response.ok) {
@@ -32,9 +34,6 @@ const GlobalProvider = ({ children }) => {
                 return response.json();
             })
             .then(result => {
-
-
-
 
                 setMovies(result.results);
             })
@@ -46,8 +45,8 @@ const GlobalProvider = ({ children }) => {
     const fetchTvShows = (query = '') => {
 
         const url = query
-            ? `https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&query=${query}`
-            : 'https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d';
+            ? `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}`
+            : `https://api.themoviedb.org/3/discover/tv?api_key=${api_key}&sort_by=popularity.desc`;
         fetch(url)
             .then(response => {
                 if (!response.ok) {
